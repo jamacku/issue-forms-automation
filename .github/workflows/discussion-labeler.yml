@@ -1,0 +1,32 @@
+---
+
+name: Discussion labeler
+on:
+  discussion:
+    types: [ opened ]
+
+jobs:
+  label-discussion-policy:
+    runs-on: ubuntu-latest
+    permissions:
+      discussions: write
+
+    strategy:
+      matrix:
+        template: [ announcements.yml ]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Parse issue form
+        uses: stefanbuck/github-issue-parser@v3
+        id: discussion-parser
+        with:
+          template-path: .github/DISCUSSION_TEMPLATE/${{ matrix.template }}
+
+      - name: Set labels based on policy
+        uses: redhat-plumbers-in-action/advanced-issue-labeler@v3
+        with:
+          issue-form: ${{ steps.discussion-parser.outputs.jsonString }}
+          template: ${{ matrix.template }}
+          token: ${{ secrets.GITHUB_TOKEN }}

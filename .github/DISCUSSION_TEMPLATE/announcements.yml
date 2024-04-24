@@ -16,7 +16,7 @@ body:
         - 'New version'
         - 'New feature'
         - 'Breaking changes'
-        - 'Comunity'
+        - 'Community'
         - 'Other'
     validations:
       required: true

@@ -22,6 +22,7 @@ jobs:
         uses: stefanbuck/github-issue-parser@v3
         id: discussion-parser
         with:
+          issue-body: ${{ github.event.discussion.body }}
           template-path: .github/DISCUSSION_TEMPLATE/${{ matrix.template }}
 
       - name: Set labels based on policy

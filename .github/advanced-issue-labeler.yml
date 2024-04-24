@@ -189,6 +189,23 @@ policy:
           - name: 'Urgent'
             keys: ['Urgent']
 
+  - template: ['announcements.yml']
+    section:
+      - id: ['type']
+        block-list: ['Other']
+        label:
+          - name: 'new version ✨'
+            keys: ['New version']
+
+          - name: 'new feature 🧰'
+            keys: ['New feature']
+
+          - name: 'breaking changes 💥'
+            keys: ['Breaking changes']
+
+          - name: 'community 🫂'
+            keys: ['Community']
+
   - section:
       - id: [type]
         block-list: ['Other']

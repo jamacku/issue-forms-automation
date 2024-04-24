@@ -3,7 +3,7 @@
 name: Discussion labeler
 on:
   discussion:
-    types: [ opened ]
+    types: [ created ]
 
 jobs:
   label-discussion-policy:

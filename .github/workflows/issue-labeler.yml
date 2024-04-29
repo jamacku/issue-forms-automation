@@ -27,7 +27,7 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/${{ matrix.template }}
 
       - name: Set labels based on policy
-        uses: jamacku/advanced-issue-labeler@graphql
+        uses: jamacku/advanced-issue-labeler@check-boxes
         with:
           issue-form: ${{ steps.issue-parser.outputs.jsonString }}
           template: ${{ matrix.template }}
